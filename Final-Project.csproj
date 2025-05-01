@@ -1,0 +1,175 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Final_Project</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="music\" />
+    <Folder Include="music\playlists\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="music\ROAM - Backbone\01 The Desmond Show.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\ROAM - Backbone\02 Cabin Fever.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\ROAM - Backbone\03 Deadweight.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\ROAM - Backbone\04 All The Same.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\ROAM - Backbone\05 Hopeless Case.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\ROAM - Backbone\06 Bloodline.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\ROAM - Backbone\07 R.I.P In Peace.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\ROAM - Backbone\08 Tracks.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\ROAM - Backbone\09 Head Rush.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\ROAM - Backbone\10 Goodbyes.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\ROAM - Backbone\11 Tell Me.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\ROAM - Backbone\12 Leaving Notice.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\1 - Title Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\10 - Overworld Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\11 - Athletic Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\12 - Underground Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\13 - Swimming Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\14 - Haunted House Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\15 - Sub Castle Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\16 - Switch Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\17 - Invincible Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\18 - Bonus Screen Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\19 - Bonus Screen Clear Fanfare.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\2 - Map 1 %28Yoshi&amp;#039s Island%29.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\20 - Koopa Junior Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\21 - Koopa Junior Castle Clear Demo Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\22 - Course Clear Fanfare.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\23 - Sub Castle Clear Fanfare.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\24 - Player Down.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\25 - Game Over.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\26 - The Evil King Koopa Bgm.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\27 - Princess Peach Is Rescued.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\28 - Ending.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\3 - Map 2 %28Overworld%29.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\4 - Map 3 %28Vanilla Dome%29.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\5 - Map 4 %28Native Star%29.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\6 - Map 5 %28Forest Of Illusion%29.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\7 - Koopa Castle Emerges.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\8 - Map 6 %28Koopa Castle%29.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Super Mario World Original Soundtrack %28MP3%29\9 - Map 7 %28Special%29.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Tyler The Creator - IGOR %282019%29\01 IGOR%27S THEME.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Tyler The Creator - IGOR %282019%29\02 EARFQUAKE.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Tyler The Creator - IGOR %282019%29\03 I THINK.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Tyler The Creator - IGOR %282019%29\04 EXACTLY WHAT YOU RUN FROM YOU END UP CHASING.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Tyler The Creator - IGOR %282019%29\05 RUNNING OUT OF TIME.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Tyler The Creator - IGOR %282019%29\06 NEW MAGIC WAND.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Tyler The Creator - IGOR %282019%29\07 A BOY IS A GUN.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Tyler The Creator - IGOR %282019%29\08 PUPPET.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Tyler The Creator - IGOR %282019%29\09 WHAT%27S GOOD.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Tyler The Creator - IGOR %282019%29\10 GONE GONE - THANK YOU.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Tyler The Creator - IGOR %282019%29\11 I DON%27T LOVE YOU ANYMORE.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="music\Tyler The Creator - IGOR %282019%29\12 ARE WE STILL FRIENDS.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
