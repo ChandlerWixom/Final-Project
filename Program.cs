@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 using System;
+using System.Diagnostics;
 using NAudio;
 using NAudio.Wave;
 
@@ -91,7 +92,7 @@ while (loop)
 }
 Console.Clear();
 
-
+// reorders a playlist then resaves it on exit
 static void CustomOrder(List<List<string>> playlist, string playlistName)
 {
 
@@ -465,7 +466,7 @@ static string PickAlbum(Dictionary<string, (string, string[])> bigList)
 }
 
 
-
+// plays one song then quits
 static void PlaySong(Dictionary<string, (string, string[])> bigList)
 {
     List <string> songAlbum = new List <string>(PickSong(bigList));
@@ -491,6 +492,9 @@ static void PlaySong(Dictionary<string, (string, string[])> bigList)
     Console.WriteLine("Finished Playing\n");
 
 }
+
+
+//returns the songs information
 static List<string> PickSong(Dictionary<string, (string, string[])> bigList)
 {
     string albume = PickAlbum(bigList);
@@ -593,12 +597,6 @@ static void PlayAlbum(Dictionary<string, (string, string[])> bigList, bool shuff
 
 
 }
-
-
-//PriorityQueue <string,int> playlist = new PriorityQueue<string,int>();
-
-
-
 
 
 // Loads all of the songs in the music folder from their albums
