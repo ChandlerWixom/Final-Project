@@ -24,6 +24,10 @@
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
+using System;
+using NAudio;
+using NAudio.Wave;
+
 
 Console.Clear();
 bool loop = true;
@@ -168,7 +172,7 @@ static void CustomOrder(List<List<string>> playlist, string playlistName)
         {
             list.Add(string.Join("¦", item));
         }
-
+        
         File.WriteAllLines($"music\\playlists\\{playlistName}", list.ToArray());
         Console.WriteLine($"Playlist {playlistName} saved");
         Thread.Sleep(1000);
@@ -181,7 +185,7 @@ static void CustomOrder(List<List<string>> playlist, string playlistName)
     }
 }
 
-// sort playlist (alphabetic, custom, album, date added)
+// allowed you to manipulate playlist
 
 static void SortPlaylist(Dictionary<string, List<List<string>>> bigList)
 {
@@ -191,7 +195,7 @@ static void SortPlaylist(Dictionary<string, List<List<string>>> bigList)
     Console.Clear();
 
     Console.WriteLine($"How would you like to edit {playlist}");
-    Console.WriteLine("1: Custom Order\n2: Album\n3: Title\n4: Date Added");
+    Console.WriteLine($"1: Reorder Playlist");
 
     int choise = -1;
     while (!Int32.TryParse(Console.ReadLine(), out choise))
@@ -219,17 +223,13 @@ static void SortPlaylist(Dictionary<string, List<List<string>>> bigList)
             ; // album
             //MISSSING
             break;
-        case 3:
-            ; // title
-            //MISSSING
-            break;
-        case 4:
-            ;  // date added
-            //MISSSING
-            break;
+       
 
     }
+    Console.Clear();
 }
+
+
 
 // Pick playlist
 static string PickPlaylist(Dictionary<string, List<List<string>>> bigList)
@@ -252,14 +252,15 @@ static string PickPlaylist(Dictionary<string, List<List<string>>> bigList)
 
 // writes the songs from a playlist 
 
-static List<string> WriteSongsPlaylist(Dictionary<string, List<List<string>>> bigList, string playlist)
+static List<(string, string)> WriteSongsPlaylist(Dictionary<string, List<List<string>>> bigList, string playlist)
 {
     List <List <string>> songs = new List <List <string>>(bigList[playlist]);
 
-    List <string> songNames = new List <string>();
+    List <(string,string)> songNames = new List <(string, string)>();
     foreach (var song in songs)
     {
-        songNames.Add(song[2]);
+        (string, string) temp = (song[2], song[1]) ;
+        songNames.Add(temp);
     }
 
     return songNames;
@@ -269,7 +270,7 @@ static List<string> WriteSongsPlaylist(Dictionary<string, List<List<string>>> bi
 static void PlayPlaylist(Dictionary<string, List<List<string>>> bigList, bool shuffle)
 {
    string playlist = PickPlaylist(bigList);
-    List <string> songs = WriteSongsPlaylist(bigList, playlist);
+    List <(string, string)> songs = WriteSongsPlaylist(bigList, playlist);
     Console.Clear();
     Console.WriteLine($"--------- {playlist} ---------\n");
     if (shuffle)
@@ -288,7 +289,7 @@ static void PlayPlaylist(Dictionary<string, List<List<string>>> bigList, bool sh
             }
 
         }
-        List<string> shuffled = new List<string>();
+        List<(string,string)> shuffled = new List<(string,string)>();
         foreach (int i in tempInts)
         {
             shuffled.Add(songs[i]);
@@ -296,9 +297,9 @@ static void PlayPlaylist(Dictionary<string, List<List<string>>> bigList, bool sh
         ;
         songs = shuffled;
     }
-    string feadback = "---";
+    string feadback = "---\t\t Enter to skip\tQ to exit";
 
-    if (shuffle) { feadback = "--- Shuffled"; }
+    if (shuffle) { feadback = "--- Shuffled\t\t Enter to skip\tQ to exit"; }
 
     Console.WriteLine(feadback);
     foreach (var song in songs)
@@ -308,13 +309,26 @@ static void PlayPlaylist(Dictionary<string, List<List<string>>> bigList, bool sh
     Console.SetCursorPosition(8, 1);
 
 
+    string userout = "-1";
     int songPos = 0;
     do
     {
 
         Console.WriteLine($"Now Playing: {songs[songPos]}");
 
-        Console.ReadKey(true);
+        using (var audiofile = new AudioFileReader($"music\\{songs[songPos].Item2}\\{songs[songPos].Item1}"))
+        {
+            using (var outputDevice = new WaveOutEvent())
+            {
+                outputDevice.Init(audiofile);
+                outputDevice.Play();
+
+                userout = Console.ReadKey(true).KeyChar.ToString();
+                outputDevice.Stop();
+            }
+
+        }
+
 
         songPos++;
         Console.SetCursorPosition(8, 1);
@@ -322,7 +336,7 @@ static void PlayPlaylist(Dictionary<string, List<List<string>>> bigList, bool sh
         Console.SetCursorPosition(8, 1);
 
 
-    } while (songPos < songs.Count);
+    } while (songPos < songs.Count && userout != "q");
 
     Console.Clear();
     Console.WriteLine("Finished Playing\n");
@@ -458,7 +472,21 @@ static void PlaySong(Dictionary<string, (string, string[])> bigList)
     Console.Clear();
     Console.WriteLine($"--------- {songAlbum[0]} ---------\n");
     Console.WriteLine($"Now Playing: {songAlbum[1]}");
-    Console.ReadKey(true);
+   
+
+    using (var audiofile = new AudioFileReader($"music\\{songAlbum[0]}\\{songAlbum[1]}"))
+    {
+        using (var outputDevice = new WaveOutEvent())
+        {
+            outputDevice.Init(audiofile);
+            outputDevice.Play();
+
+            Console.ReadKey(true);
+            outputDevice.Stop();
+        }
+
+    }
+
     Console.Clear();
     Console.WriteLine("Finished Playing\n");
 
@@ -517,9 +545,9 @@ static void PlayAlbum(Dictionary<string, (string, string[])> bigList, bool shuff
         songs = shuffled;
             }
 
-    string feadback = "---";
+    string feadback = "---\t\t Enter to skip\tQ to exit";
 
-    if (shuffle) { feadback = "--- Shuffled"; }
+    if (shuffle) { feadback = "--- Shuffled\t\t Enter to skip\tQ to exit"; }
 
     Console.WriteLine(feadback);
     foreach (var song in songs)
@@ -528,14 +556,26 @@ static void PlayAlbum(Dictionary<string, (string, string[])> bigList, bool shuff
     }
     Console.SetCursorPosition(8, 1);
 
-
+    string userout = "-1";
     int songPos = 0;
     do
     {
 
         Console.WriteLine($"Now Playing: {songs[songPos]}");
+
+        using (var audiofile = new AudioFileReader($"music\\{album}\\{songs[songPos]}"))
+        {
+            using (var outputDevice = new WaveOutEvent())
+            {
+                outputDevice.Init(audiofile);
+                outputDevice.Play();
+
+                userout = Console.ReadKey(true).KeyChar.ToString();
+                outputDevice.Stop();
+            }
+
+        }
         
-        Console.ReadKey(true);
 
         songPos++;
         Console.SetCursorPosition(8, 1);
@@ -543,7 +583,7 @@ static void PlayAlbum(Dictionary<string, (string, string[])> bigList, bool shuff
         Console.SetCursorPosition(8, 1);
 
 
-    } while (songPos < songs.Count);
+    } while (songPos < songs.Count && userout != "q");
 
     Console.Clear();
     Console.WriteLine("Finished Playing\n");
@@ -599,7 +639,10 @@ static void WriteAll(Dictionary<string, (string, string[])> albumList)
 static string[] WriteAlbums(Dictionary<string, (string, string[])> albumList)
 {
     int count = 1;
-    string[] albums = albumList.Keys.ToArray();
+    List <string> tempalbums = new List <string>(albumList.Keys);
+    tempalbums.Remove("playlists");
+
+    string[] albums = tempalbums.ToArray();
     foreach (string album in albums)
     {
         Console.WriteLine($"{count}. {album}");
